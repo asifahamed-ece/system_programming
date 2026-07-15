@@ -9,4 +9,3 @@ $(TARGET): zombie_orphan.c
 
 clean:
 	rm -f $(TARGET)
-	
