@@ -1,20 +1,7 @@
-# Compiled binaries
-*.o
-*.out
-a.out
-fork
-*.exe
-*.bin
-*.hex
-*.elf
-*.map
+# Ignore everything in this specific folder
+Process_Management/*
 
-# Build directories
-build/
-bin/
-obj/
+# But do not ignore the source code files
+!Process_Management/exec_and_wait/*.c
+!Process_Management/exec_and_wait/*.h
 
-# Editor files
-*.swp
-*~
-.vscode/
