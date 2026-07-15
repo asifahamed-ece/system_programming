@@ -2,6 +2,7 @@
 Process_Management/*
 
 # But do not ignore the source code files
-!Process_Management/exec_and_wait/*.c
-!Process_Management/exec_and_wait/*.h
+!Process_Management/*/*.c
+!Process_Management/*/*.h
+!Process_Management/*/Makefile
 
