@@ -1,8 +1,14 @@
-# Ignore everything in this specific folder
-Process_Management/*
+# --- Ignore specific compiled binaries (no extensions) ---
+Process_Management/fork_basics/fork
+Process_Management/exec_and_wait/exec_wait
 
-# But do not ignore the source code files
-!Process_Management/*/*.c
-!Process_Management/*/*.h
-!Process_Management/*/Makefile
+# --- Ignore standard C build artifacts everywhere ---
+*.o
+*.out
+a.out
+*.exe
 
+# --- Ignore editor/OS files ---
+*.swp
+*~
+.vscode/
