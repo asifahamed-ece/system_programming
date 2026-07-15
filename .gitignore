@@ -6,3 +6,7 @@
    modules.order
    Module.symvers
    .tmp_versions/
+*.o
+fork
+*.out
+a.out
