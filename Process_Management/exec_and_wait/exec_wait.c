@@ -30,8 +30,7 @@ int main()
         waitpid(pid, &status, 0);   // This prevents the child from becoming a Zombie!
 
         if(WIFEXITED(status))
-            printf("Child %d Completed it's Work Normally with Status %d.\n", pid, WEXITSTATUS(status));// checking the status of CHild when It dies.
-    
+            printf("\nChild %d Completed it's Work with Status %d.\n", pid, WEXITSTATUS(status));// checking the status of CHild when It dies.
     }
     return 0;
 }
