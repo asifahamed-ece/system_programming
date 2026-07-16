@@ -3,6 +3,7 @@
 #include <pthread.h>
 #include <stdlib.h>
 
+
 int shared_counter = 0;  // Shared Global Variable
 
 pthread_mutex_t counter_mutex; // Mutex Declaration for our Counting Job.
@@ -11,7 +12,7 @@ void* sensor_update(void *args){
     int thread_id = *(int *)args;  // Cast it into an int and derefernce to pass the value
 
     // Each thread Increments for the count of 1M times
-    for (int i=0; i<1000000; i++){
+    for (int i=0; i<100000; i++){
         // Lock the Mutex 
         pthread_mutex_lock(&counter_mutex);
 
@@ -45,7 +46,6 @@ int main()
     for(int i=0; i<2; i++){
         pthread_join(threads[i], NULL);
     }
-
     // 4. Destroy the Mutex after Used.
     pthread_mutex_destroy(&counter_mutex);
 
