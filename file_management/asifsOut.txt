@@ -1,0 +1,2 @@
+[3] this msg goes into the File, Not in Terminal
+[4] ANother message Storing inside the asifsOut.txt file instead of Stdout
