@@ -31,7 +31,7 @@ int main()
         close(fd);
         return 1;
     }
-
+    
     printf("[Reader]: Successfully Read %zd bytes from FIFO\n", bytes_read);
     printf("[Reader]: Received Message : %s\n", buff);
 
