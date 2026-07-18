@@ -1,0 +1,12 @@
+
+CC = gcc
+CFLAGS = -Wall -g
+TARGET = interval_timer
+
+all: $(TARGET)
+
+$(TARGET): interval_timer.c
+	$(CC) $(CFLAGS) interval_timer.c -o $(TARGET)
+
+clean:
+	rm -f $(TARGET)
