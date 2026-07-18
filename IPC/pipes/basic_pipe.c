@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <unistd.h>
 #include <fcntl.h>
-#include <sys/types.h>
+#include <sys/wait.h>
 
 int main(int argc, char* argv[])
 {
@@ -44,7 +44,8 @@ int main(int argc, char* argv[])
         }
         close(pipe_fd[0]);
 
-        printf("Got an int \"%d\" from Child\n", out);
+        printf("[parent]: Got an int \"%d\" from Child\n", out);
+        wait(NULL);  // Reap the child before exiting.
     }
     return 0;
 }
