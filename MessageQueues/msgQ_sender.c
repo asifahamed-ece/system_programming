@@ -32,24 +32,24 @@ int main()
 
     // 2. Send Message 1 with Low Priority (P = 1)
     msg.mtype = 1; // Type => Priority
-    strcpy(msg.mtext, "Sensor Data : Sound = 45dB.\n");
+    strcpy(msg.mtext, "Sensor Data : Sound = 45dB.");
     //Size is Payload Only!
     if(msgsnd(msqid, &msg, sizeof(msg.mtext), 0) == -1){
         perror("msgsnd failed!\n");
         return 2;
     }
-    printf("[Sender]: Sent Type 1 (Low Priority): %s\n", msg.mtext);
+    printf("\n[Sender]: Sent Type 1 (Low Priority): %s\n", msg.mtext);
 
     // 3. Sending a High priority message
     msg.mtype = 4; // High priority
-    strcpy(msg.mtext, "Noise Warning !!!\nSensor Data : Sound = 105dB.\n");
+    strcpy(msg.mtext, "Noise Warning !!!\nSensor Data : Sound = 105dB.");
     if (msgsnd(msqid, &msg, sizeof(msg.mtext), 0) == -1){
         perror("msgsnd failed!\n");
         return 3;
     }
-    printf("[Sender]: Sent Type 4 (High Priority): %s\n", msg.mtext);
+    printf("\n[Sender]: Sent Type 4 (High Priority): %s\n", msg.mtext);
 
 
-    printf("[Sender]: Done Sending Both Data. Waiting for Receiver to Process.\n");
+    printf("\n[Sender]: Done Sending Both Data. Waiting for Receiver to Process.\n");
     return 0;
 }
