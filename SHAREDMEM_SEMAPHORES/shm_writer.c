@@ -77,7 +77,11 @@ int main()
         perror("semctl init failed!\n");
         return 1;
     }
-    printf("[Writer]: Semaphore initialized to 1\n");
+    printf("[Writer]: Semaphore initialized to 1\n\n");
+
+    // Initial Temp and Humid Values for simulating Change over time.
+    float cur_temp = 33.6;
+    float cur_humid = 72.7;
 
     // 5. Writing Data in Loop
     for(int i=0; i<5; i++){
@@ -85,15 +89,16 @@ int main()
         semaphore_wait(semid);
 
         printf("[Writer]: Semaphore locked. Writing data...\n");
-        shared_data->temp = 33.6;
-        shared_data->humid = 72.7;
+        // Simulating Temp & Humid Changes
+        shared_data->humid = cur_humid;     cur_humid += 0.93;
+        shared_data->temp = cur_temp;       cur_temp += 0.77;
         snprintf(shared_data->status, sizeof(shared_data->status), "Reading #%d", i+1);
 
         printf("[Writer] Data Written: Temp=%.2f, Humid=%.2f, Status=%s\n", 
             shared_data->temp, shared_data->humid, shared_data->status);
 
         semaphore_signal(semid);  // Giving back semaphore
-        printf("[Writer]: Semaphore Unlocked!\n");
+        printf("[Writer]: Semaphore Unlocked!\n\n");
         sleep(2);  // Wait 2 seconds bw each Sensor Write
     }
 
